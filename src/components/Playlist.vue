@@ -1,6 +1,7 @@
 <template>
   <div class="playlist">
     <h3>Playlist</h3>
+    <p>Choose a track to play.</p>
     <ul>
       <li
         v-for="(track, index) in tracks"

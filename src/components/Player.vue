@@ -1,21 +1,22 @@
 <template>
   <div class="player">
-    <h2>Now Playing: {{ currentTrack?.title || 'None' }}</h2>
-    <audio ref="audio" :src="currentTrack?.url" @timeupdate="updateProgress"></audio>
-    <div>
-      <button @click="togglePlay">{{ isPlaying ? 'Pause' : 'Play' }}</button>
-      <span>Mode:</span>
-      <select v-model="repeatMode">
-        <option value="list">Repeat List</option>
-        <option value="track">Repeat Track</option>
-        <option value="none">No Repeat</option>
-      </select>
-    </div>
-    <div class="progress-bar" @click="seek">
-      <div :style="{ width: progress + '%' }"></div>
-    </div>
+    <h2>Player</h2>
+    <p>Choose a track to play.</p>
+    <fieldset>
+      <legend>Playback mode</legend>
+      <label>
+        <input type="radio" value="list" v-model="repeatMode" /> Repeat list
+      </label>
+      <label>
+        <input type="radio" value="track" v-model="repeatMode" /> Repeat track
+      </label>
+      <label>
+        <input type="radio" value="none" v-model="repeatMode" /> Don't repeat
+      </label>
+    </fieldset>
   </div>
 </template>
+
 
 <script>
 export default {

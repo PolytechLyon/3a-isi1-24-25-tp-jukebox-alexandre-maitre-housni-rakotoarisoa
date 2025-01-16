@@ -1,24 +1,33 @@
 <template>
   <div class="add-track-form">
-    <h3>Add a New Track</h3>
-    <form @submit.prevent="addTrack">
-      <div>
-        <label>Add track:</label>
-        <select v-model="mode">
-          <option value="link">Via link</option>
-          <option value="file">Via file upload</option>
-        </select>
-      </div>
-      <div v-if="mode === 'link'">
-        <input v-model="trackLink" type="text" placeholder="Enter track URL" />
-      </div>
-      <div v-if="mode === 'file'">
-        <input ref="fileInput" type="file" accept="audio/*" />
-      </div>
-      <button type="submit">Add</button>
-    </form>
+    <label for="mode">Add track:</label>
+    <select id="mode" v-model="mode">
+      <option value="link">By URL</option>
+      <option value="file">By file</option>
+    </select>
+    <div v-if="mode === 'link'" class="input-container">
+      <input
+        v-model="trackLink"
+        type="text"
+        placeholder="Provide URL"
+        aria-label="Track URL"
+      />
+    </div>
+    <div v-if="mode === 'file'" class="input-container">
+      <input
+        ref="fileInput"
+        type="file"
+        accept="audio/*"
+        aria-label="Upload file"
+      />
+    </div>
+    <button @click.prevent="addTrack" :disabled="!isValid">
+      Add
+    </button>
   </div>
 </template>
+
+
 
 <script>
 export default {
