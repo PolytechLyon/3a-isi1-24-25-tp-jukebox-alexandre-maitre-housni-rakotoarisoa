@@ -1,8 +1,7 @@
 <template>
   <div class="player">
     <h2>Player</h2>
-    <p v-if="currentTrack">Now playing: {{ currentTrack.title }}</p>
-    <p v-else>No track selected</p>
+    
 
     <!-- Mode de répétition -->
     <fieldset>
@@ -17,6 +16,9 @@
         <input type="radio" value="none" v-model="repeatMode" /> Don't repeat
       </label>
     </fieldset>
+
+    <p v-if="currentTrack">Now playing: {{ currentTrack.title }}</p>
+    <p v-else>No track selected</p>
 
     <!-- Contrôles du lecteur -->
     <div v-if="currentTrack">
@@ -35,12 +37,13 @@
     </div>
 
     <!-- Liste des pistes -->
-    <h3>Playlist</h3>
+    <h2>Playlist</h2>
     <ul>
       <li v-for="(track, index) in tracks" :key="index">
-        <span :class="{ broken: track.broken }">{{ track.title }}</span>
         <button @click="playTrack(index)" :disabled="track.broken">Play</button>
         <button @click="removeTrack(index)" class="delete-button">Delete</button>
+        <span :class="{ broken: track.broken }">{{ track.title }}</span>
+        
       </li>
     </ul>
   </div>
@@ -176,10 +179,15 @@ export default {
 </script>
 
 <style scoped>
+
 .player {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.player div > button {
+  margin-right: 10px; /* Espace de 10px à droite du bouton Play */
 }
 
 .progress-bar {
@@ -200,4 +208,36 @@ export default {
   text-decoration: line-through;
   color: red;
 }
+
+/* Ajout d'espacement entre les boutons */
+.player ul li {
+  display: flex; /* Active Flexbox */
+  justify-content: space-between; /* Écarte les éléments horizontalement */
+  align-items: center; /* Centre verticalement par défaut */
+  gap: 10px; /* Espace entre les éléments de la ligne */
+  margin-bottom: 10px; /* Espacement entre les lignes */
+  padding-bottom: 5px; /* Ajoute un peu d'air sous chaque ligne */
+  border-bottom: 1px solid #ddd; /* Ligne de séparation légère */
+}
+
+.player ul li button {
+  padding: 5px 10px; /* Ajoute de l'espace interne au bouton */
+  font-size: 14px; /* Taille du texte pour les boutons */
+  border-radius: 4px; /* Coins arrondis */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  align-self: flex-start; /* Réhausse les boutons pour les aligner avec le début du titre */
+  margin-bottom: 3px; /* Ajuste légèrement pour un alignement visuel parfait */
+}
+
+/* Espacement entre les boutons Play et Delete */
+.player ul li button + button {
+  margin-left: 10px;
+}
+
+.player ul li span {
+  flex-grow: 1; /* Prend l'espace restant entre les boutons et le titre */
+  text-align: left; /* S'assure que le texte est aligné à gauche */
+}
+
 </style>

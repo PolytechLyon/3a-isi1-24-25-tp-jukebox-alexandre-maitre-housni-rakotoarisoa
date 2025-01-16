@@ -1,4 +1,5 @@
 <template>
+  <h2>New Track</h2>
   <div class="add-track-form">
     <label for="mode">Add track:</label>
     <select id="mode" v-model="mode">

@@ -1,6 +1,5 @@
 <template>
   <div class="playlist">
-    <p>Choose a track to play or add new tracks.</p>
 
     <!-- Formulaire d'ajout -->
     <AddTrackForm @add-track="addTrack" />
