@@ -40,6 +40,7 @@
       <li v-for="(track, index) in tracks" :key="index">
         <span :class="{ broken: track.broken }">{{ track.title }}</span>
         <button @click="playTrack(index)" :disabled="track.broken">Play</button>
+        <button @click="removeTrack(index)" class="delete-button">Delete</button>
       </li>
     </ul>
   </div>
@@ -166,6 +167,9 @@ export default {
       } else if (this.repeatMode === 'track') {
         this.onTrackEnd(); // Rejouer ou arrêter
       }
+    },
+    removeTrack(index) {
+      this.$emit('remove-track', index);
     },
   },
 };

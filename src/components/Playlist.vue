@@ -6,13 +6,7 @@
     <AddTrackForm @add-track="addTrack" />
 
     <!-- Liste des pistes -->
-    <ul>
-      <li v-for="(track, index) in tracks" :key="index">
-        <span>{{ track.title }}</span>
-        <!-- On n'inclut plus le bouton "Play" -->
-        <button @click="removeTrack(index)">Delete</button>
-      </li>
-    </ul>
+    
   </div>
 </template>
 
