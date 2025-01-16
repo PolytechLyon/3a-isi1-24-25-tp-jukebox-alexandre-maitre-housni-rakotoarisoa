@@ -3,6 +3,7 @@
     <Player
       :tracks="tracks"
       @play-track="updateTrackIndex"
+      @remove-track="removeTrack"
     />
     <Playlist
       :tracks="tracks"
@@ -28,7 +29,7 @@ export default {
       this.tracks.push(track);
     },
     removeTrack(index) {
-      this.tracks.splice(index, 1);
+      this.tracks.splice(index, 1); // Supprimer la piste avec l'index donné
     },
   },
 };
