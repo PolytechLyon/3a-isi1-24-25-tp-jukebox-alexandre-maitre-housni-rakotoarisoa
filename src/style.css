@@ -1,0 +1,177 @@
+/* Style global */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f4f8; /* Couleur de fond douce */
+}
+
+/* Conteneur principal */
+#app {
+  width: 800px;
+  max-width: 90%;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #333;
+}
+
+/* Titres */
+h1 {
+  font-size: 30px;
+  text-align: center;
+  color: #0077c8; /* Bleu doux */
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: 20px;
+  color: #009238; /* Bleu plus foncé */
+  border-bottom: 2px solid #009238; /* Ligne décorative */
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+/* Section Player */
+.player fieldset {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+/* Playlist */
+.playlist ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.playlist li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fefefe;
+}
+
+.playlist li:hover {
+  background-color: #f4faff; /* Légère surbrillance */
+}
+
+.playlist button {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.playlist button:hover {
+  background-color: #d62828;
+}
+
+/* AddTrackForm Styles */
+.add-track-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.add-track-form label {
+  font-weight: bold;
+  color: #333;
+}
+
+.add-track-form select,
+.add-track-form input[type="text"],
+.add-track-form input[type="file"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-track-form input[type="text"]:focus,
+.add-track-form input[type="file"]:focus,
+.add-track-form select:focus {
+  border-color: #0077c8;
+  outline: none;
+}
+
+.add-track-form button {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #009238;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-track-form button:hover {
+  background-color: #00ce33;
+}
+
+.add-track-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Progress bar (Player) */
+.progress-bar {
+  margin-top: 15px;
+  height: 12px;
+  background-color: #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.progress-bar > div {
+  height: 100%;
+  background-color: #009238;
+  width: 0; /* Dynamique via JS */
+  transition: width 0.3s ease;
+}
+
+/* Boutons généraux */
+button {
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
